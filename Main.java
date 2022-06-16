@@ -5,17 +5,16 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        // create a scanner
-        Scanner myScanner = new Scanner(System.in);
 
         System.out.println("Welcome to Credit Service!");
-        System.out.println("Please enter 1 for Experian, 2 for TransUnion, and 3 for Equifax: ");
+        System.out.println("Your choices are: 1 for Experian, 2 for TransUnion, and 3 for Equifax: ");
 
-        // get input from user
-        int serviceChoice = Integer.parseInt(myScanner.nextLine());
+        // get user input (from validation class)
+        int serviceChoice = ValidateInput.getValidInput();
 
+        // get credit service object from factory
         CreditService yourCreditService = CreditServiceFactory.getCreditScore(serviceChoice);
-
+        
         System.out.println(yourCreditService.toString());
     }
 }
